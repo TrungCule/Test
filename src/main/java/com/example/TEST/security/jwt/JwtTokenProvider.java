@@ -10,7 +10,8 @@ import java.util.UUID;
 
 @Component
 @Slf4j
-public class JwtTokenProvider {
+public class
+JwtTokenProvider {
     // Đoạn JWT_SECRET này là bí mật, chỉ có phía server biết
     private final String JWT_SECRET = "lodaaaaaa";
 
@@ -23,7 +24,7 @@ public class JwtTokenProvider {
         Date expiryDate = new Date(now.getTime() + JWT_EXPIRATION);
         // Tạo chuỗi json web token từ id của user.
         return Jwts.builder()
-                .setSubject(userDetails.getUser().getId().toString())
+                .setSubject(userDetails.getUsers().getId().toString())
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
                 .signWith(SignatureAlgorithm.HS512, JWT_SECRET)
