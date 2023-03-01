@@ -38,7 +38,7 @@ JwtTokenProvider {
                 .parseClaimsJws(token)
                 .getBody();
 
-        return UUID.fromString((claims.getSubject()));
+        return UUID.fromString(claims.getSubject());
     }
 
     public boolean validateToken(String authToken) {

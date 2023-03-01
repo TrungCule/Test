@@ -14,7 +14,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
 
-public interface UserService {
+public interface UserService extends UserDetailsService{
 
     UserDetails loadUserByUsername(String username);
     UserDetails loadUserById(UUID id);

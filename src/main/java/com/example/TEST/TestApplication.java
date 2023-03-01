@@ -22,11 +22,6 @@ public class TestApplication {
 	}
 	@Autowired
 	UserRepository userRepository;
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		// Password encoder, để Spring Security sử dụng mã hóa mật khẩu người dùng
-		return new BCryptPasswordEncoder();
-	}
 
 	@Bean
 	public CommandLineRunner run(UserService userService) {
