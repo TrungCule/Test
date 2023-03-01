@@ -14,11 +14,9 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
 
-@Service
 public interface UserService {
 
     UserDetails loadUserByUsername(String username);
-    @Transactional
     UserDetails loadUserById(UUID id);
 
     Users saveUser(Users users);
