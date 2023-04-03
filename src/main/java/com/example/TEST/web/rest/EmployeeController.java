@@ -4,12 +4,11 @@ import com.example.TEST.domain.Employee;
 import com.example.TEST.handleException.ResourceNotFoundException;
 import com.example.TEST.repository.EmployeeRepository;
 import com.example.TEST.service.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,12 +16,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {
-    @Autowired
-    private EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
 
     private final EmployeeService employeeService;
 
-    public EmployeeController(EmployeeService employeeService) {
+    public EmployeeController(EmployeeRepository employeeRepository,EmployeeService employeeService) {
+        this.employeeRepository = employeeRepository;
         this.employeeService = employeeService;
     }
 
